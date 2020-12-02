@@ -15,6 +15,7 @@ executable aoc2020
     text,
     bytestring,
     containers,
+    split,
     unordered-containers,
     vector
   default-language:    
