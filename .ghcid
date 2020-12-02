@@ -1,0 +1,1 @@
+-S --run=":! doctest Main.hs"
