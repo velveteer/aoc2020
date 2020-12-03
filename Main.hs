@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns   #-}
 {-# LANGUAGE NamedFieldPuns #-}
 {-# LANGUAGE PatternGuards  #-}
 
@@ -308,7 +309,7 @@ day3Example =
 solveDay3a :: Int -> Int -> [String] -> Int
 solveDay3a sx sy ls = go 0 0 0
   where
-    go x y acc
+    go !x !y !acc
       | y >= length ls = acc
       | otherwise =
         case (fmap (concat . repeat) ls !! y) !! x of
