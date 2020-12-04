@@ -7,7 +7,7 @@
 
 module Advent.Day3 where
 
-import Advent.Prelude
+import           Advent.Prelude
 
 day3a :: IO Int
 day3a = load "day3.txt" <&> solveDay3a 3 1

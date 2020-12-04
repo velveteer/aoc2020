@@ -9,11 +9,11 @@
 module Advent.Day2 where
 
 import           Advent.Prelude
-import qualified Data.List as L
+import qualified Data.List       as L
 import qualified Data.List.Split as L
 import           Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
-import qualified Data.Maybe as M
+import qualified Data.Maybe      as M
 
 day2a :: IO Int
 day2a = load "day2.txt" <&> asPolicies <&> solveDay2a

@@ -6,7 +6,7 @@
 
 module Advent.Day1 where
 
-import Advent.Prelude
+import           Advent.Prelude
 
 asInts :: [String] -> [Int]
 asInts = fmap read

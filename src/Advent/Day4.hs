@@ -10,8 +10,8 @@
 
 module Advent.Day4 where
 
-import Advent.Prelude
-import Data.List ((\\))
+import           Advent.Prelude
+import           Data.List      ((\\))
 
 day4a :: IO Int
 day4a = load "day4.txt" <&> solveDay4a
@@ -119,7 +119,7 @@ isValidPair (key, value)
 
   | key == "hcl"
   , ('#':v) <- value
-  = length v == 6 && all (isHexDigit . toLower) v
+  = length v == 6 && all (`elem` ['a'..'f'] <> ['0'..'9']) v
 
   | key == "hgt"
   , (readMaybe @Int -> Just num, unit)
