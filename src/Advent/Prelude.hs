@@ -4,17 +4,18 @@ module Advent.Prelude
   , load
   ) where
 
-import Prelude as Export hiding (pred)
-import Control.Applicative as Export
-import Control.Monad as Export
-import Data.Char as Export (digitToInt, isDigit, isHexDigit, toLower)
-import Data.Either as Export
-import Data.Functor as Export ((<&>))
-import Data.List as Export (foldl', partition, tails)
-import Data.List.Split as Export (splitOn)
-import Data.Maybe as Export
-import Data.Text as Export (Text, pack)
-import Text.Read as Export (readMaybe)
+import           Control.Applicative as Export
+import           Control.Monad       as Export
+import           Data.Char           as Export (digitToInt, isDigit, isHexDigit,
+                                                toLower)
+import           Data.Either         as Export
+import           Data.Functor        as Export ((<&>))
+import           Data.List           as Export (foldl', partition, tails)
+import           Data.List.Split     as Export (splitOn)
+import           Data.Maybe          as Export
+import           Data.Text           as Export (Text, pack)
+import           Prelude             as Export hiding (pred)
+import           Text.Read           as Export (readMaybe)
 
 load :: FilePath -> IO [String]
 load = fmap lines . readFile . ("text/" <>)
