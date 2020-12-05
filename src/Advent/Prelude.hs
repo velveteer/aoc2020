@@ -7,7 +7,7 @@ module Advent.Prelude
 import Prelude as Export hiding (pred)
 import Control.Applicative as Export
 import Control.Monad as Export
-import Data.Char as Export (isDigit, isHexDigit, toLower)
+import Data.Char as Export (digitToInt, isDigit, isHexDigit, toLower)
 import Data.Either as Export
 import Data.Functor as Export ((<&>))
 import Data.List as Export (foldl', partition, tails)

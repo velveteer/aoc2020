@@ -1,3 +1,4 @@
+{-# LANGUAGE LambdaCase #-}
 -- |
 -- Module      : Advent.Day5
 -- Description : Day 5 Solutions
@@ -7,7 +8,8 @@
 module Advent.Day5 where
 
 import           Advent.Prelude
-import           Data.List ((\\))
+import           Data.List      ((\\))
+import           Numeric        (readInt)
 
 day5a :: IO Int
 day5a = load "day5.txt" <&> solveDay5a
@@ -22,15 +24,15 @@ solveDay5a = maximum . fmap getSeatId
 -- 357
 getSeatId :: String -> Int
 getSeatId str =
-  let ([r], [c]) = foldl' go ([0..127], [0..7]) str in r * 8 + c
-  where
-    go (r, c) ch =
-      case ch of
-        'F' -> (take (length r `div` 2) r, c)
-        'B' -> (drop (length r `div` 2) r, c)
-        'R' -> (r, drop (length c `div` 2) c)
-        'L' -> (r, take (length c `div` 2) c)
-        _   -> error "Cannot parse boarding pass"
+  fst . head $ readInt 2 (const True) digitToInt (fmap toBin str)
+
+toBin :: Char -> Char
+toBin = \case
+  'F' -> '0'
+  'B' -> '1'
+  'L' -> '0'
+  'R' -> '1'
+  _   -> error "Cannot parse boarding pass"
 
 -- | Solve Day 5 Part Two
 -- Get my seat id
