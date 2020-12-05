@@ -47,8 +47,11 @@ toBin = \case
 -- | Solve Day 5 Part Two
 -- Get my seat id
 solveDay5b :: [String] -> Int
-solveDay5b strs = head $ [minimum ids..maximum ids] \\ ids
+solveDay5b strs = head $ [minId..maxId] \\ ids
   where ids = getSeatId <$> strs
+        (minId, maxId) =
+          let x = head ids
+           in foldl' (\(l, h) sId -> (min l sId, max h sId)) (x, x) ids
 
 day5b :: IO Int
 day5b = load "day5.txt" <&> solveDay5b
