@@ -20,6 +20,16 @@ solveDay5a :: [String] -> Int
 solveDay5a = maximum . fmap getSeatId
 
 -- | Get seat id from a boarding pass.
+-- What the hell is going on? Look closely at the seat id formula...
+-- `row * 8 + col`
+-- Well, we know there are 10 characters in the input.
+-- FBFBBFF == 0101100 == 44
+-- RLR     == 101     == 5
+-- We could do (44 * 8 + 5) and get 357, the correct seat id.
+-- But we can also take advantage of the fact that multiplying
+-- by 8 is the same as shifting bits left by 3, giving enough room
+-- to add the 3 bits from RLR, which gives us 10 bits total,
+-- the same amount of characters in our input.
 -- >>> getSeatId "FBFBBFFRLR"
 -- 357
 getSeatId :: String -> Int
