@@ -19,7 +19,20 @@ day5a = load "day5.txt" <&> solveDay5a
 solveDay5a :: [String] -> Int
 solveDay5a = maximum . fmap getSeatId
 
--- | Get seat id from a boarding pass.
+-- My original solution -- not great but I was moving fast.
+_getSeatIdOg :: String -> Int
+_getSeatIdOg str =
+  let ([r], [c]) = foldl' go ([0..127], [0..7]) str in r * 8 + c
+  where
+    go (r, c) ch =
+      case ch of
+        'F' -> (take (length r `div` 2) r, c)
+        'B' -> (drop (length r `div` 2) r, c)
+        'R' -> (r, drop (length c `div` 2) c)
+        'L' -> (r, take (length c `div` 2) c)
+        _   -> error "Cannot parse boarding pass"
+
+-- | WITH INSIGHT: Map the input characters to binary.
 -- What the hell is going on? Look closely at the seat id formula...
 -- `row * 8 + col`
 -- Well, we know there are 10 characters in the input.
