@@ -58,3 +58,7 @@ solveDay6b =
     >>> ((\(m, c) -> Map.filter (== c) m)
       >>> Map.size))
   >>> sum
+
+-- WITH INSIGHT
+-- I realize now my previous failed attempt to fold `intersect` over the groups
+-- was because I forgot about `foldl1`. That would be the simpler approach.
