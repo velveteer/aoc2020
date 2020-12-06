@@ -29,9 +29,8 @@ library advent
     Advent.Day3
     Advent.Day4
     Advent.Day5
+    Advent.Day6
     Advent.Prelude
   default-extensions: 
     NoImplicitPrelude,
     OverloadedStrings
-  ghc-options:
-    -Wall

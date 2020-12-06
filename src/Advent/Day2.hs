@@ -39,9 +39,6 @@ asPolicies = fmap toPolicy
            in (Policy var1 var2 ch, pass)
       | otherwise = error "Cannot parse password policy"
 
-histogram :: String -> Map Char Int
-histogram str = Map.fromListWith (+) (zip str $ repeat 1)
-
 getValidPassword :: Policy -> Password -> Maybe Password
 getValidPassword Policy{pVar1=pMin,pVar2=pMax,pCh} pass = do
   freq <- Map.lookup pCh (histogram pass)
