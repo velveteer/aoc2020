@@ -9,6 +9,7 @@ import           Prelude             as Export hiding (pred)
 
 import           Control.Applicative as Export
 import           Control.Arrow       as Export
+import           Control.Lens        as Export
 import           Control.Monad       as Export
 import           Data.Char           as Export (digitToInt, isDigit)
 import           Data.Either         as Export
