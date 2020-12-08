@@ -11,10 +11,10 @@ library advent
   build-depends:       
     base < 5,
     attoparsec,
-    text,
     bytestring,
     containers,
     split,
+    text,
     unordered-containers,
     vector
   default-language:    
@@ -30,6 +30,7 @@ library advent
     Advent.Day4
     Advent.Day5
     Advent.Day6
+    Advent.Day7
     Advent.Prelude
   default-extensions: 
     NoImplicitPrelude,

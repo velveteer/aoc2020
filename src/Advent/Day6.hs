@@ -8,7 +8,7 @@ module Advent.Day6 where
 
 import           Advent.Prelude
 import qualified Data.Map.Strict as Map
-import qualified Data.Set as Set
+import qualified Data.Set        as Set
 
 day6a :: IO Int
 day6a = load "day6.txt" <&> solveDay6a
