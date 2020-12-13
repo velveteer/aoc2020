@@ -2,6 +2,7 @@ module Advent.Prelude
   ( module Export
   , (<$$>)
   , load
+  , asInts
   , histogram
   ) where
 
@@ -19,6 +20,7 @@ import           Data.List.Split     as Export (splitOn)
 import           Data.Map.Strict     as Export (Map)
 import qualified Data.Map.Strict     as Map
 import           Data.Maybe          as Export
+import Data.Ord as Export (Down(..), comparing)
 import           Data.Set            as Export (Set)
 import           Data.Text           as Export (Text, pack, unpack)
 import           Text.Read           as Export (readMaybe)
@@ -32,4 +34,7 @@ f <$$> b = (fmap . fmap) f b
 
 histogram :: String -> Map Char Int
 histogram str = Map.fromListWith (+) (zip str $ repeat 1)
+
+asInts :: [String] -> [Int]
+asInts = fmap read
 

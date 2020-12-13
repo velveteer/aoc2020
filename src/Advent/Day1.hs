@@ -8,9 +8,6 @@ module Advent.Day1 where
 
 import           Advent.Prelude
 
-asInts :: [String] -> [Int]
-asInts = fmap read
-
 day1a :: IO (Maybe Int)
 day1a = load "day1.txt" <&> asInts <&> solveDay1a
 
